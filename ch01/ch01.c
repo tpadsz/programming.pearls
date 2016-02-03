@@ -81,7 +81,9 @@ int main(int argc, char* argv[]){
 
     int i=0;
     for(i;i<NUMBERS;i++){
-        printf("%d\n",*(bitmap+i));
+        // Here all numbers must be represented by an all-set unsigned char 0xFF.
+        // Hence the output should look like "Number xxx: 255"
+        printf("Number %d: %d\n",i,*(bitmap+i/8));
     }
     free(bitmap);
     fclose(fp);
