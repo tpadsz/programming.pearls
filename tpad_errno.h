@@ -1,0 +1,7 @@
+#ifndef TPAD_ERRNO_H_INCLUDED
+#define TPAD_ERRNO_H_INCLUDED
+
+#define ERR_OUT_OF_BUFFER -10
+#define ERR_UNKNOWN -1
+
+#endif // TPAD_ERRNO_H_INCLUDED

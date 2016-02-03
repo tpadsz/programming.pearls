@@ -3,6 +3,8 @@
 #include<stdio.h>
 #include<errno.h>
 #include "ch01.h"
+#include "../tpad_types.h"
+#include "../tpad_errno.h"
 
 /**
 *   Prepares the file which contains 1000000 numbers.
@@ -28,7 +30,7 @@ FILE* prepare(){
 *   int number, the number to mark. If the number is larger the buffer can hold, returns -1.
 *   return: <0 if an error occurs. >=0 if the bit is set.
 */
-int markNumber(U8* bitmap, int bitmapSize, int number){
+int markNumber(U8b* bitmap, int bitmapSize, int number){
 
     if(number>=bitmapSize){
         return ERR_OUT_OF_BUFFER;
@@ -37,8 +39,8 @@ int markNumber(U8* bitmap, int bitmapSize, int number){
     int offset=number%8;
 
     // TODO set bit.
-    U8 byte=(U8)(*(bitmap+pos));
-    U8 bit=((U8)1)<<offset;
+    U8b byte=(U8b)(*(bitmap+pos));
+    U8b bit=((U8b)1)<<offset;
 
 
     if((byte>>offset)%2==1){  // If the bit is already set.
@@ -59,7 +61,7 @@ int markNumber(U8* bitmap, int bitmapSize, int number){
 int main(int argc, char* argv[]){
     FILE* fp=prepare();
 
-    U8* bitmap=(U8*)malloc(_BITMAP_SIZE);
+    U8b* bitmap=(U8b*)malloc(_BITMAP_SIZE);
     memset(bitmap,0,_BITMAP_SIZE);
 
     if(bitmap<1){
@@ -81,7 +83,7 @@ int main(int argc, char* argv[]){
     for(i;i<NUMBERS;i++){
         printf("%d\n",*(bitmap+i));
     }
-
+    free(bitmap);
     fclose(fp);
     return 0;
 }
