@@ -3,8 +3,8 @@
 #include<stdio.h>
 #include<errno.h>
 #include "ch01.h"
-#include "../tpad_types.h"
-#include "../tpad_errno.h"
+#include "../include/tpad_errno.h"
+#include "../include/tpad_types.h"
 
 /**
 *   Prepares the file which contains 1000000 numbers.

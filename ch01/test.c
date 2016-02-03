@@ -11,7 +11,7 @@ int test(int argc,char* argv[]){
     fscanf(fp,"%d",&number);
     printf("%d\n",number);
     fscanf(fp,"%d",&number);
-    printf("%d\n",number);D:\cpp\programming.pearls\.gitignore
+    printf("%d\n",number);
 
     printf("11 mod 8 = %d\n",11%8);
 
