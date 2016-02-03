@@ -45,7 +45,9 @@ int markNumber(U8b* bitmap, int bitmapSize, int number){
 
     if((byte>>offset)%2==1){  // If the bit is already set.
         return number;
-    }else{  // If not, set it.
+    }else{  // If not, set it. Here I changed the rule which in the
+            // original problem would make this situation a fatal
+            // error.
 
 //        if(number==8421119){
 //            printf("Set for number %d, pos %d, offset %d, bitmap line: %02X\n",number,pos,offset,*(bitmap+pos));
