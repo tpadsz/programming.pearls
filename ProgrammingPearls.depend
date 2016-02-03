@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1454493145 source:d:\cpp\programmingpearls\ch01.c
+	<stdarg.h>
+	<stddef.h>
+	<stdio.h>
+	<errno.h>
+	"ch01.h"
+
+1454492822 d:\cpp\programmingpearls\ch01.h
+
+1454488294 source:d:\cpp\programmingpearls\test.c
+	<stdarg.h>
+	<stddef.h>
+	<stdio.h>
+	<errno.h>
+
