@@ -5,3 +5,7 @@ obj/
 programming.pearls.cbp
 programming.pearls.depend
 programming.pearls.layout
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
