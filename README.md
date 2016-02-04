@@ -15,5 +15,21 @@
   The bits representing numbers in the set are 1, and all other bits are 0.
   In the real problem, the seven decimal digits of each integer denote a number less than ten million. We'll represent the file by a string of ten million bits in which the *i<sup>th</sup>* bit is on if and only if the integer *i* is in the file.(The programmer found two million spare bits; Problem 5 investigates what happens when a megabyte is a firm limit.) This representation uses three attributes of this problem not usually found in sorting problems: the input is from a relatively small range, it contains no duplicates, and no data is associated with each record beyond the single integer.
 
+### **TPAD's Practice**
+  As we focus on the bitmap section, I ignore the merge sort stuffs and implement only the `bitmap` algorithm along with its corresponding `input file`. So the core function of ch01.c is this:
+
+```c
+/**
+*   parameters:
+*   void* bitmap, the bitmap buffer which contains all the numbers as individual bits.
+*   int bitmapSize, the size of the bitmap.
+*   int number, the number to mark. If the number is larger the buffer can hold, returns -1.
+*   return: <0 if an error occurs. >=0 if the bit is set.
+*/
+int markNumber(U8b* bitmap, int bitmapSize, int number);
+```
+
+  Note that I changed the rule defined in `Precise Problem Statement` as the first step to deal with duplicate numbers which may require a little trick.
+
 
 
