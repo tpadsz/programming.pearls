@@ -23,13 +23,15 @@
 *   parameters:
 *   void* bitmap, the bitmap buffer which contains all the numbers as individual bits.
 *   int bitmapSize, the size of the bitmap.
-*   int number, the number to mark. If the number is larger the buffer can hold, returns -1.
+*   int number, the number to mark. If the number is larger the buffer can hold, returns ERR_OUT_OF_BUFFER.
 *   return: <0 if an error occurs. >=0 if the bit is set.
 */
 int markNumber(U8b* bitmap, int bitmapSize, int number);
 ```
 
   Note that I changed the rule defined in `Precise Problem Statement` as the first step to deal with duplicate numbers which may require a little trick.
+
+  Also note that I allocate 1MB memory and produce exactly the same quantity of numbers (i.d. `#define NUMBERS (1*1024*1024*8)` in ch01.h). Thus the output looks like this: `Number <integer>: 255` because all bits are set.
 
 
 
