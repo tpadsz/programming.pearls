@@ -1,4 +1,4 @@
-# **Programming Pearls**
+# **Programming Pearls: An implementation from **
 
 
 ## Column 1: **Cracking the Oyster**
@@ -21,7 +21,7 @@
 ```c
 /**
 *   parameters:
-*   void* bitmap, the bitmap buffer which contains all the numbers as individual bits.
+*   U8b* bitmap, the bitmap buffer which contains all the numbers as individual bits.
 *   int bitmapSize, the size of the bitmap.
 *   int number, the number to mark. If the number is larger the buffer can hold, returns ERR_OUT_OF_BUFFER.
 *   return: <0 if an error occurs. >=0 if the bit is set.
