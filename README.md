@@ -1,4 +1,4 @@
-# **Programming Pearls: An implementation from Roger@TPAD**
+# **Programming Pearls: An implementation from community**
 
 
 ## Column 1: **Cracking the Oyster**
