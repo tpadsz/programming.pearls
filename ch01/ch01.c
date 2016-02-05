@@ -7,7 +7,7 @@
 #include "../include/tpad_types.h"
 
 /**
-*   Prepares the file which contains 1000000 numbers.
+*   Prepares the file which contains <NUMBERS> numbers.
 *   If the file already exists, will clear it.
 */
 FILE* prepare(){

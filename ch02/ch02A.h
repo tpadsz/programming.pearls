@@ -1,0 +1,6 @@
+#ifndef CH02A_H_INCLUDED
+#define CH02A_H_INCLUDED
+
+#define NUMBERS 0xEE6B2800
+
+#endif // CH02A_H_INCLUDED
