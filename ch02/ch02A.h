@@ -5,5 +5,5 @@
 // numbers for at least one missing. 0xEE6B2800 literally
 // is the hex representation for 4 billion.
 #define NUMBERS 0xEE6B2800
-
+#define CH02A_4B_FILE_NAME "numbers.txt"
 #endif // CH02A_H_INCLUDED

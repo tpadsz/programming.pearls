@@ -11,7 +11,7 @@
 *   If the file already exists, will clear it.
 */
 FILE* prepare(){
-    FILE* fp=fopen("d:\\numbers.txt","w+");
+    FILE* fp=fopen("numbers.txt","w+");
     if(fp==NULL){
         perror("Failed to open file.");
         exit(1);
