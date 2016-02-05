@@ -30,7 +30,7 @@ FILE* prepare(){
         perror("Failed to open file.");
         exit(1);
     }
-    unsigned int i;
+    U32b i;
     for(i=0;i<NUMBERS;i++){
         // Using unsigned numbers for programmers
         // to check them clearly.
@@ -41,19 +41,101 @@ FILE* prepare(){
     return fp;
 }
 
+/**
+*   Sets bit for target at position pos counting
+*   from the higher bits to the lower bits. That
+*   is to say, position 0 means the highest (or
+*   the right most) bit and position 31 means the
+*   lowest (or the left most) bit.
+*   int* target, the target number to set bit.
+*   pos, pos starting at 0 and must be smaller
+*    than sizeof(U32b) or will return
+*    ERR_INDEX_OUT_OF_BOUND.
+*   returns ERR_NO_ERROR if bit is successfully
+*    set or ERR_INDEX_OUT_OF_BOUND.
+*
+*/
+int setBit(U32b* target, U32b pos){
+    if(pos<0||pos>=sizeof(U32b)){
+        return ERR_INDEX_OUT_OF_BOUND;
+    }
+    U32b mask=((U32b)HIHEST_U32b_BIT) >> pos;
+
+    if(mask & *target != mask){
+        *target+=mask;
+    }
+
+    return EER_NO_ERROR;
+}
+
+
+U32b binarySearchMissingNumber(const FILE* fp){
+
+    U32b i;
+    U32b ret=0;
+    U32b num;
+    FILE* fpSmallerPart=fp;
+    FILE* fpPartA;
+    FILE* fpPartB;
+    long long sizeA;
+    long long sizeB;
+    rewind(fpSmallerPart);
+    for(i=0;i<sizeof(U32b);i++){
+        U32b mask=((U32b)HIHEST_U32b_BIT)>>i;
+        fpPartA=fopen("partA.txt","w");
+        fpPartB=fopen("partB.txt","w");
+        while(fscanf(fpSmallerPart,"%u",&num)!=EOF){
+
+            if(num & mask == mask){
+                fprintf(fpPartA,"%u\n",num);
+            }else{
+                fprintf(fpPartB,"%u\n",num);
+            }
+
+
+        }
+        fflush(fpPartA);
+        fflush(fpPartB);
+        sizeA=ftell64(fpPartA);
+        sizeB=ftell64(fpPartB);
+
+        // To reserve the original numbers file.
+        if(i!=0){
+            fclose(fpSmallerPart);
+        }
+
+        if(sizeA>sizeB){
+            fpSmallerPart=fpPartB;
+            remove(fpPartA);
+        }else{
+
+            fpSmallerPart=fpPartA;
+            remove(fpPartB);
+            setBit(ret,i);
+        }
+        rewind(fpSmallerPart);
+    }
+    remove(fpPartA);
+    remove(fpPartB);
+
+    return ret;
+}
+
 int main(int argc, char* argv[]){
 
     FILE* fp=prepare();
     rewind(fp);
 
+    U32b missing=binarySearchMissingNumber(fp);
+
+    printf("%u",missing);
+
 
     fclose(fp);
-
-
-
+    /*
     if(remove(CH02A_4B_FILE_NAME)!=0){
         perror("Failed to delete file.");
     }
-
+    */
     return 0;
 }

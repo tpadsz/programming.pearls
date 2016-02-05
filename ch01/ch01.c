@@ -60,7 +60,7 @@ int markNumber(U8b* bitmap, int bitmapSize, int number){
     return ERR_UNKNOWN;
 }
 
-int main(int argc, char* argv[]){
+int main_ch01(int argc, char* argv[]){
     FILE* fp=prepare();
 
     U8b* bitmap=(U8b*)malloc(_BITMAP_SIZE);

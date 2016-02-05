@@ -3,5 +3,6 @@
 
 #define ERR_OUT_OF_BUFFER -10
 #define ERR_UNKNOWN -1
-
+#define ERR_INDEX_OUT_OF_BOUND -20
+#define EER_NO_ERROR 0
 #endif // TPAD_ERRNO_H_INCLUDED
