@@ -95,8 +95,8 @@ U32b binarySearchMissingNumber(const FILE* fp){
         }
         fflush(fpPartA);
         fflush(fpPartB);
-        sizeA=ftell64(fpPartA);
-        sizeB=ftell64(fpPartB);
+        sizeA=ftell(fpPartA);
+        sizeB=ftell(fpPartB);
 
         fclose(fpSmallerPart);
 
