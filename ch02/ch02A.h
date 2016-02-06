@@ -7,6 +7,8 @@
 #define NUMBERS 0xEE6B2800
 #define HIHEST_U32b_BIT 0x80000000
 #define CH02A_4B_FILE_NAME "numbers.txt"
+#define PART_A_FILENAME "partA.txt"
+#define PART_B_FILENAME "partB.txt"
 
 #if __WIN32__
 #define stat64 _stat64

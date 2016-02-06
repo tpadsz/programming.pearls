@@ -81,42 +81,38 @@ U32b binarySearchMissingNumber(const FILE* fp){
     long long sizeB;
     rewind(fpSmallerPart);
     for(i=0;i<sizeof(U32b);i++){
-        U32b mask=((U32b)HIHEST_U32b_BIT)>>i;
-        fpPartA=fopen("partA.txt","w");
-        fpPartB=fopen("partB.txt","w");
-        while(fscanf(fpSmallerPart,"%u",&num)!=EOF){
 
+        U32b mask=((U32b)HIHEST_U32b_BIT)>>i;
+        fpPartA=fopen(PART_A_FILENAME,"w");
+        fpPartB=fopen(PART_B_FILENAME,"w");
+
+        while(fscanf(fpSmallerPart,"%u",&num)!=EOF){
             if(num & mask == mask){
                 fprintf(fpPartA,"%u\n",num);
             }else{
                 fprintf(fpPartB,"%u\n",num);
             }
-
-
         }
         fflush(fpPartA);
         fflush(fpPartB);
         sizeA=ftell64(fpPartA);
         sizeB=ftell64(fpPartB);
 
-        // To reserve the original numbers file.
-        if(i!=0){
-            fclose(fpSmallerPart);
-        }
+        fclose(fpSmallerPart);
 
         if(sizeA>sizeB){
             fpSmallerPart=fpPartB;
-            remove(fpPartA);
+            remove(PART_A_FILENAME);
         }else{
 
             fpSmallerPart=fpPartA;
-            remove(fpPartB);
+            remove(PART_B_FILENAME);
             setBit(ret,i);
         }
         rewind(fpSmallerPart);
     }
-    remove(fpPartA);
-    remove(fpPartB);
+    remove(PART_A_FILENAME);
+    remove(PART_B_FILENAME);
 
     return ret;
 }
