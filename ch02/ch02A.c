@@ -100,6 +100,7 @@ U32b binarySearchMissingNumber(const FILE* fp){
 
         fclose(fpSmallerPart);
 
+        printf("PartA size: %X, PartB size: %X.",sizeA, sizeB);
         if(sizeA>sizeB){
             fpSmallerPart=fpPartB;
             remove(PART_A_FILENAME);
